@@ -1,0 +1,382 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gill Sans';
+  background-color: rgb(216, 215, 215);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease;
+  background-color: transparent;
+  background: black;
+}
+
+header.scroll {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.encabezado {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1vh 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  width: 5vw;
+  height: auto;
+  transform: scale(4);
+}
+.logo-container {
+  padding-left: 5vw;
+}
+/* Menú centrado */
+.menu-central {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-central ul {
+  display: flex;
+  gap: 4vw;
+  list-style: none;
+  align-items: center;
+}
+
+.menu-central a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 1.1vw;
+  position: relative;
+}
+
+.menu-central a:not(.btn-inscribete)::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #e0197c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.menu-central a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Botón inscribete */
+.boton-inscribete {
+  display: flex;
+  align-items: center;
+}
+
+.btn-inscribete {
+  background-color: #d64990;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #fff !important;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-inscribete:hover {
+  background-color: #cf097d;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #000;
+  border-radius: 5px;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  z-index: 999;
+}
+
+
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0197c;
+  border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/*CELULAR*/
+/* Estilo del botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilos responsive */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-central {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    z-index: 999;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .menu-central ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .boton-inscribete {
+    margin-top: 10px;
+  }
+
+  .menu-central.show {
+    display: flex;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+
+
+
+/* === INSCRÍBETE CENTRADO === */
+.formulario-inscribete {
+  margin-top: 5.5%;
+  background-color: #000000ef;
+  background-size: 5px 5px;
+  padding: 50px 0;
+  color: white;
+  font-family: 'Georgia', serif;
+}
+
+.form-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.formulario {
+  flex: 1;
+}
+
+.formulario h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario label {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.formulario span {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="tel"] {
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 4px;
+}
+
+.radio-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+}
+
+.radio-group input {
+  margin-right: 10px;
+}
+
+.formulario button {
+  margin-top: 20px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+  width: fit-content;
+}
+
+.formulario button:hover {
+  background: white;
+  color: #863f24;
+}
+
+.imagen-formulario {
+  flex: 1;
+}
+
+.imagen-formulario img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+/*WHATSAPP*/
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: auto;
+  height: 60px;
+}
+
+
+/*SECCION FOOTER*/
+footer {
+  background-color: #1b1b1b;
+  color: #fff;
+  padding: 15px 20px 20px;
+  font-family: 'Gill Sans', sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+}
+
+img.footer-logo {
+  margin-left: 20%;
+  max-width: 10%;
+  height: auto;
+  transform: scale(4);
+
+}
+
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-contact h3 {
+  margin-bottom: 10px;
+}
+
+.footer-contact p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.footer-middle {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #ff11b0;
+  transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #aaa;
+}

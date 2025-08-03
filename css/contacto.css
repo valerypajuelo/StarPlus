@@ -1,0 +1,317 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gill Sans';
+  background-color: rgb(216, 215, 215);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease;
+  background-color: transparent;
+  background: black;
+}
+
+header.scroll {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.encabezado {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 1vh 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  width: 5vw;
+  height: auto;
+  transform: scale(4);
+}
+.logo-container {
+  padding-left: 5vw;
+}
+/* Menú centrado */
+.menu-central {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-central ul {
+  display: flex;
+  gap: 4vw;
+  list-style: none;
+  align-items: center;
+}
+
+.menu-central a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  font-size: 1.1vw;
+  position: relative;
+}
+
+.menu-central a:not(.btn-inscribete)::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #e0197c;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.menu-central a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Botón inscribete */
+.boton-inscribete {
+  display: flex;
+  align-items: center;
+}
+
+.btn-inscribete {
+  background-color: #d64990;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #fff !important;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-inscribete:hover {
+  background-color: #cf097d;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #000;
+  border-radius: 5px;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  z-index: 999;
+}
+
+
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a::after {
+  content: none !important;
+  display: none !important;
+}
+
+.dropdown-content a:hover {
+  background-color: #e0197c;
+  border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/*CELULAR*/
+/* Estilo del botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilos responsive */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-central {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    z-index: 999;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .menu-central ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .boton-inscribete {
+    margin-top: 10px;
+  }
+
+  .menu-central.show {
+    display: flex;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+
+
+/* === CONTENIDO PRINCIPAL CONTACTO === */
+main.contacto {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  color: #222;
+}
+
+main.contacto h2 {
+  font-size: 2rem;
+  color: #cf097d;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+main.contacto h3 {
+  margin-top: 40px;
+  color: #cf097d;
+  font-size: 1.4rem;
+}
+
+main.contacto p,
+main.contacto a {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+main.contacto a {
+  color: #cf097d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main.contacto a:hover {
+  text-decoration: underline;
+}
+
+/* === FORMULARIO === */
+form {
+  margin-top: 20px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+form button {
+  margin-top: 16px;
+  background-color: #cf097d;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #a90760;
+}
+
+/* === REDES SOCIALES === */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  text-align: center;
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #cf097d;
+  transform: scale(1.05);
+}
+
+.footer-social img {
+  width: 40px;
+  height: auto;
+  margin-bottom: 6px;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #000;
+  color: #ffe600;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
